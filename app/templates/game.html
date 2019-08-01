@@ -1,0 +1,158 @@
+
+<html>
+  <head>
+    <title>title</title>
+<link rel="stylesheet" href="static/assets/css/second.css" />
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+	</head>  
+	<style>
+	.container>div {
+		align-items: center;
+		color: white;
+		display: flex;
+		font-size: 2em;
+		justify-content: center;
+	}
+
+	a {
+		align-items: center;
+		border: solid grey thin;
+		color: white;
+		display: flex;
+		font-size: 2em;
+		justify-content: center;
+	}
+
+	input {
+		display: flex;
+		margin: auto;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #f4511e;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 28px;
+		padding: 20px;
+		width: 125%;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 5px;
+	}
+
+	/* input:span {*/
+
+	/*  cursor: pointer;*/
+
+	/*  display: inline-block;*/
+
+	/*  position: relative;*/
+
+	/*  transition: 0.5s;*/
+
+	/*}*/
+
+	/*input:span {*/
+
+	/*  content: '\00bb';*/
+
+	/*  position: absolute;*/
+
+	/*  opacity: 0;*/
+
+	/*  top: 0;*/
+
+	/*  right: 0px;*/
+
+	/*  transition: 0.5s;*/
+
+	/*}*/
+
+	input:hover {
+		padding-right: 25px;
+		opacity: 1;
+		right: 0;
+		content: '\00bb';
+		position: relative;
+		top: 0;
+		cursor: pointer;
+		display: inline-block;
+		transition: 0.5s;
+	}
+
+	.container {
+		text-align: center;
+		margin: 25%;
+		margin-top: 50px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 100% 100% 100%;
+	}
+	header {
+		text-align: center;
+		font-size: 1000%;
+	}
+	#heading {
+		grid-column-start: 1;
+		grid-column-end: 4;
+		
+	}
+	#heading{
+		color:white;
+	}
+	#sideone {
+		grid-row-start: 3;
+		grid-row-end: 4;
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+
+	#buttontwo {
+		grid-column-start: 3;
+		grid-column-end: 4;
+	}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      Game 1
+    </header>
+   <!--keep score show score another question make a list that reapeats for each new question -->
+    <div class="container">
+      <div id="heading">{{question[0]["question"]}}</div>
+      <div id="sideone">{% if question[0]["answer" == value]: %}
+      <p>good job</p>
+      {% else: %}
+ 	<p>bad job</p>
+  {% endif %}
+  	</div>
+      <div id="buttonone"><span><form ><input type="submit" name="submit_button" value="True"></form></span></div>
+      <div id="buttontwo"><span><form ><input type="submit" name="submit_button" value="False"></form></span></div>
+      <!--<div id="sidetwo">4</div>-->
+    </div>
+  <!--  <div>-->
+  <!--    <br/>-->
+	 <!--   Q1.Which is not attribute ?<br/>-->
+	 <!--   <input type="radio" name="q1"/>name<br/>-->
+	 <!--   <input type="radio" name="q1"/>value<br/>-->
+	 <!--   <input type="radio" name="q1"/>a<br/>-->
+	 <!--   <input type="radio" name="q1"/>href<br/>-->
+		<!--<br/>-->
+	 <!--   Q2.Onclick is an event attribute of HTML.<br/>-->
+	 <!--   <input type="radio" name="q2" />true<br/>-->
+	 <!--   <input type="radio" name="q2" />false<br/>-->
+	 <!--   <br/>-->
+	 <!--   Q3.What is the default charecter encoding in HTML5 ?<br/>-->
+	 <!--   <input type="radio" name="q3" />ASCII<br/>-->
+	 <!--   <input type="radio" name="q3" />UTF-8<br/>-->
+	 <!--   <input type="radio" name="q3" />UTF-16<br/>-->
+	 <!--   <input type="radio" name="q3" />EBCDIC<br/>-->
+	 <!--   <br/>-->
+  <!--  </div>-->
+      
+  </body>
+<html>

@@ -1,0 +1,34 @@
+
+<html>
+    <head>
+        <title>Some HTML Page</title>
+        <style >
+        
+            body{
+                text-align:center;
+                background:#F5F5DC;
+            }
+            heading{
+                margin-top:70px;
+                font-size:70px;
+            }
+            footer{
+             margin-top:30px;
+            } 
+        </style>
+    </head>
+    <body>
+        <heading>
+        hello {{session['username']}}    
+        </heading>
+        <div>
+            {% for user in profiles %}
+            <li>{{ user.username }}</li>
+        {% endfor %}
+            <a href='/index'>
+              back
+         </a>
+        </footer>
+        </form>
+    </body>
+</html>

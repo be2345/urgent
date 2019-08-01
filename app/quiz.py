@@ -1,0 +1,1 @@
+question = [{"question":"Bernie Sanders is a candiate?", "answer":"true"}]
