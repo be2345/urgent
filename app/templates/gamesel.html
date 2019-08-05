@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>Game</title>
 	<!--<link rel="stylesheet" href="static/assets/css/second.css" />-->
@@ -11,7 +12,7 @@
 
 	body {
 		font-family: 'Source Sans Pro', sans-serif;
-		background-color: #042f4b;
+		background-image: linear-gradient(-135deg, #074976, #4378ad);
 	}
 
 	#banner {
@@ -121,13 +122,13 @@
 		margin-top: 50px;
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: 100% 100% 100%;
+		grid-template-rows: repeat(4, 1fr);
 	}
 
 	header {
 		color:white;
 		text-align: center;
-		font-size: 1000%;
+		font-size: 500%;
 	}
 
 	#heading {
@@ -156,6 +157,12 @@
 		grid-column-start: 3;
 		grid-column-end: 4;
 	}
+	#bottom_corner {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		grid-row-start: 4;
+		grid-row-end: 5;
+	}
 	h1{
 		box-shadow: 5px 10px #fbc99d;
 		position: absolute;
@@ -169,6 +176,7 @@
 		font-size: 28px;
 
 	}
+	
 
 	@media screen and (max-width: 840px) {
 		body {
@@ -180,23 +188,35 @@
 
 <body>
 	<header>
-		Game 1
+		Game Selection
 	</header>
 	<h1>
-		{{ answer }} you have {{interesting}}
+		Thank you
 	</h1>
 	<!--keep score show score another question make a list that reapeats for each new question -->
 	<div class="container">
-		<div id="heading">{{any["question"]}}</div>
-		<div id="sideone"> points</div>
+		<div id="heading"><a href='/game'>True or False</a></a></div>
+		<!--<a href='/quiz/<quiz>'>profile</a></p>-->
+		<div id="sideone"></div>
 		<div id="buttonone"><span>
-<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="True"></form></span> </div>
+<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="1"></form></span> </div>
 		<div id="buttontwo"><span>
-<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="False"></form></span></div>
+<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="2"></form></span></div>
 		<div id="middle"></div>
+<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="3"></form></span>
+		<div id="bottom_corner">
+		<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="4"></form></span> </div>	
+		</div>
+
+
+<!--<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="4"></form></span></div>-->
 
 		<!--<div id="sidetwo">4</div>-->
 	</div>
+	
+	
+	
+	<br></br>
 	<footer>
 	<a href="/">go back</a>
 	</footer>

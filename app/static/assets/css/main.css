@@ -84,7 +84,7 @@ input, select, textarea {
 
 	body {
 		background-color: #042f4b;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-image: url("images/fulls/04.png"), url("../../images/01.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: auto, cover;
 		background-position: top left, center 0;
@@ -1952,41 +1952,6 @@ input, select, textarea {
 				text-align: center;
 			}
 
-/* Icons */
-
-	.icon {
-		text-decoration: none;
-		text-decoration: none;
-	}
-
-		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
-			display: inline-block;
-			font-style: normal;
-			font-variant: normal;
-			text-rendering: auto;
-			line-height: 1;
-			text-transform: none !important;
-			font-family: 'Font Awesome 5 Free';
-			font-weight: 400;
-		}
-
-		.icon:before {
-			line-height: inherit;
-		}
-
-		.icon > .label {
-			display: none;
-		}
-
-		.icon.solid:before {
-			font-weight: 900;
-		}
-
-		.icon.brands:before {
-			font-family: 'Font Awesome 5 Brands';
-		}
 
 /* Header */
 
@@ -2352,7 +2317,7 @@ input, select, textarea {
 
 			body {
 				background-color:#042f4b;
-				background-image: url("images/overlay.png"), url("../../images/bg-alt.jpg");
+				background-image: url("images/01.jpg"), url("Website/fun/images/02.jpg");
 				background-repeat: repeat, no-repeat;
 				background-size: auto, 100% auto;
 				background-position: top left, top center;
