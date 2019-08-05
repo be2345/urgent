@@ -32,8 +32,8 @@
 
 	a {
 		align-items: center;
-		border: solid grey thin;
-		color: white;
+		/*border: solid grey thin;*/
+		color: #fbc99d;
 		display: flex;
 		font-size: 2em;
 		justify-content: center;
@@ -195,7 +195,7 @@
 	</h1>
 	<!--keep score show score another question make a list that reapeats for each new question -->
 	<div class="container">
-		<div id="heading"><a href='/game'>True or False</a></a></div>
+		<div id="heading"><a>True or False</a></div>
 		<!--<a href='/quiz/<quiz>'>profile</a></p>-->
 		<div id="sideone"></div>
 		<div id="buttonone"><span>
@@ -207,7 +207,19 @@
 		<div id="bottom_corner">
 		<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="4"></form></span> </div>	
 		</div>
-
+	<div class="container">
+		<div id="heading"><a>Quiz</a></div>
+		<!--<a href='/quiz/<quiz>'>profile</a></p>-->
+		<div id="sideone"></div>
+		<div id="buttonone"><span>
+<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="1"></form></span> </div>
+		<div id="buttontwo"><span>
+<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="2"></form></span></div>
+		<div id="middle"></div>
+<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="3"></form></span>
+		<div id="bottom_corner">
+		<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="4"></form></span> </div>	
+		</div>
 
 <!--<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="4"></form></span></div>-->
 

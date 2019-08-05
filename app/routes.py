@@ -97,7 +97,7 @@ def signup():
         existing_user = realusers.find_one({'username':request.form['username']})
         if existing_user is None:
             realusers.insert({'username':request.form['username'],'password':request.form['password']})
-            return "success"
+            return render_template('/index')
         else:
             return "taken"
     else:
@@ -112,7 +112,7 @@ def login():
                 session['username']=request.form['username']
                 return redirect(url_for('index'))
             else:
-                    return "your password doe'snt match your username"
+                    return "your password does'nt match your username"
         else:
             return "no existing user"
 @app.route('/logout')
@@ -131,21 +131,24 @@ def profile(username):
 any = quiz.question
 quiz_number=0
 colors=[]
+cool=0
 @app.route('/quiz/<quiz>', methods=['POST','GET'])
 def gamer(quiz):
     global quiz_number
     # quiz_number=0
     global any
+    global cool
     if request.method =='POST':
+        del colors[:]
         quiz_number=int(request.form['submit_button'])-1
         # print(any)
         apple = any[quiz_number][0]
         # quiz=quiz.question[any]
-        return render_template('gamer.html', apple=apple,colors=colors)
+        return render_template('gamer.html', apple=apple,colors=colors,cool=cool)
     else:
         return "goodbye"
         
-cool=0
+
 points=0
 pointslist=[0]
 # quiz_number=0
@@ -181,7 +184,7 @@ def truth():
                 # if request.method == 'POST':
                 #     continue
                 else:
-                    return render_template('gamer.html',colors=colors,color=color, answer=answer, question=quiz.question[quiz_number],apple=apple,interesting=interesting)
+                    return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple,interesting=interesting)
             # elif cool == 4:
             #     cool=0
             
@@ -205,10 +208,10 @@ def truth():
                 # if request.method == 'POST':
                 #     continue
                 else:
-                    return render_template('gamer.html',colors=colors,color=color, answer=answer, question=quiz.question[quiz_number],apple=apple, interesting=interesting)
+                    return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple, interesting=interesting)
                 # return render_template('game.html', answer=answer, question=question,any=any)
         elif request.method == 'POST':
-            return render_template('gamer.html',colors=colors,color=color, answer=answer, question=quiz.question[quiz_number],apple=apple)
+            return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple)
         
         else:
             return "goodbye"

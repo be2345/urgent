@@ -21,7 +21,6 @@
 		background: #fff6da url("images/banner.svg") bottom center no-repeat;
 	}
 
-
 	/*.container>div {*/
 
 	/*	border-radius: 25px;*/
@@ -274,7 +273,10 @@
 <form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="True"></form></span> </div>
 		<div id="buttontwo"><span>
 <form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="False"></form></span></div>
-		<div id="middle"></div>
+		<div id="middle">{% if cool<=4: %}
+	<h4><a href='/gamesel'>exit</a></h4>
+	{% else %}
+	<a href='/results'>end</a> {% endif %}</div>
 
 		<!--<div id="sidetwo">4</div>-->
 	</div>
