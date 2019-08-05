@@ -273,10 +273,24 @@
 <form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="True"></form></span> </div>
 		<div id="buttontwo"><span>
 <form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="False"></form></span></div>
-		<div id="middle">{% if cool<=4: %}
-	<h4><a href='/gamesel'>exit</a></h4>
+	<!--	<div id="buttonone"><span>{% if cool<=4: %}-->
+	<!--<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="True"></form></span></div>-->
+	<!--	<div id="buttonone"></div></span></div>-->
+
+	<!--{% else %}-->
+	<!--	<div id="buttonone"></div> {% endif %}-->
+	<!--	<div id="buttontwo"><span>{% if cool<=4: %}-->
+	<!--<form type = "submit" method="POST" action = "/truth"><input type="submit" name="submit_button" value="False"></form></span></div>-->
+	<!--	<div id="buttontwo"></div></span></div>-->
+	<!--{% else %}-->
+	<!--	<div id="buttontwo"></div> {% endif %}-->
+		<div id="middle"><span>{% if cool<=4: %}
+	</span></div>
+		<div id="middle">
 	{% else %}
-	<a href='/results'>end</a> {% endif %}</div>
+	<form type = "submit" method="POST" ><input type="submit" name="submit_button" value="Results"></form></span></div>
+		<div id="middle"></div> {% endif %}
+
 
 		<!--<div id="sidetwo">4</div>-->
 	</div>
