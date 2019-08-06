@@ -321,7 +321,7 @@ def choicetruth():
                     interesting = sum(cpointslist)
                     # cool=cool+1
                     ccool+=1
-                    apple= quiz.choice[cquiz_number][ccool]
+                    capple= quiz.choice[cquiz_number][ccool]
                     ccolors.append("red")
                     number=len(quiz.choice[cquiz_number])
                     return render_template('choice.html',colors=ccolors,cool=ccool, answer=answer, question=quiz.choice[cquiz_number],apple=capple,interesting=interesting)
