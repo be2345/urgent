@@ -102,6 +102,13 @@ def signup():
             return "taken"
     else:
         return render_template('signup.html')
+@app.route('/loginapp', methods = ['GET', 'POST'])    
+def loginapp():
+    answer=""
+    if request.method=='POST':
+        return render_template('login.html',answer=answer)
+    else:
+        return render_template('login.html',answer=answer)
 @app.route('/login', methods = ['POST'])    
 def login():
         realusers = mongo.db.realusers
@@ -112,9 +119,12 @@ def login():
                 session['username']=request.form['username']
                 return redirect(url_for('index'))
             else:
-                    return "your password does'nt match your username"
+                answer="Your Username did not match"
+                return render_template('/login.html',answer=answer)
         else:
-            return "no existing user"
+            answer="no existing user"
+            return render_template('/login.html',answer=answer)
+
 @app.route('/logout')
 def logout():
     session.clear()
@@ -140,13 +150,14 @@ def gamer(quiz):
     global cool
     if request.method =='POST':
         del colors[:]
+        cool=0
         quiz_number=int(request.form['submit_button'])-1
         # print(any)
         apple = any[quiz_number][0]
         # quiz=quiz.question[any]
         return render_template('gamer.html', apple=apple,colors=colors,cool=cool)
     else:
-        return "goodbye"
+        return render_template('index.html', apple=apple,colors=colors,cool=cool)
         
 
 points=0
@@ -228,8 +239,7 @@ def truth():
             return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple)
         
         else:
-            return "goodbye"
- 
+            return render_template('index.html') 
           
             # elif request.form['value'] == question[0]["answer"]:
         #     answer = "badjob"

@@ -958,6 +958,9 @@
 			text-decoration: none;
 			white-space: nowrap;
 		}
+		input[type="submit"]{
+			margin-top:10px;
+		}
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
@@ -1684,13 +1687,19 @@
 	</section>
 		<!-- Main -->
 		<section id="main">
-			<h4>create and account</h4>
-			<form method='POST' action='/signup'>
-				username:
-				<input type='text' name='username'> Password:
-				<input type='text' name='password'>
-				<input type='submit' value='Submit'>
-			</form>
+		
+			{% if 'username' not in session: %}
+	<h4>Log in to your account</h4>
+	<h4>{{answer}}</h4>
+	<form method='POST' action='/login'>
+		Username:
+		<input type='text' name='username'> Password:
+		<input type='text' name='password'>
+		<input type='submit' value='Submit'>
+	</form>
+	<p>No account?</p> <a href="/signup">Sign up here</a> {% else %}
+	<p>you are logged in as {{session['username']}}</p>
+	<a href='/logout'>log out</a> {% endif %}
 			<!--
 						<hr />
 						<h2>Extra Stuff!</h2>
@@ -1728,13 +1737,13 @@
 						</form>
 						<hr />
 						-->
-			<footer>
-				<ul class="icons">
-					<li><a href="/" class="icon brands fa-twitter">Twitter</a></li>
-					<li><a href="#" class="icon brands fa-instagram">Instagram</a></li>
-					<li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>
-				</ul>
-			</footer>
+			<!--<footer>-->
+			<!--	<ul class="icons">-->
+			<!--		<li><a href="/" class="icon brands fa-twitter">Twitter</a></li>-->
+			<!--		<li><a href="#" class="icon brands fa-instagram">Instagram</a></li>-->
+			<!--		<li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>-->
+			<!--	</ul>-->
+			<!--</footer>-->
 		</section>
 
 		<!-- Footer -->
