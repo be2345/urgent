@@ -240,6 +240,108 @@ def truth():
         
         else:
             return render_template('index.html') 
+cany = quiz.choice
+cquiz_number=0
+ccolors=[]
+ccool=0
+@app.route('/mchoice/<mchoice>', methods=['POST','GET'])
+def choice(mchoice):
+    global cquiz_number
+    # quiz_number=0
+    global cany
+    global ccool
+    if request.method =='POST':
+        del ccolors[:]
+        ccool=0
+        cquiz_number=int(request.form['submit_button'])-1
+        # print(any)
+        capple = cany[quiz_number][0]
+        # quiz=quiz.question[any]
+        return render_template('choice.html', apple=capple,colors=ccolors,cool=ccool)
+    else:
+        return render_template('index.html', apple=capple,colors=ccolors,cool=ccool)
+        
+
+cpoints=0
+cpointslist=[0]
+# quiz_number=0
+@app.route('/choicetruth', methods=['POST','GET'])
+def choicetruth():
+    global ccool
+    global cquiz_number
+    capple= quiz.choice[cquiz_number][ccool]
+    global cpoints
+    answer=" "
+    interesting = sum(cpointslist)
+    number=len(quiz.choice[cquiz_number])
+    while ccool <= 5:
+    # count = 0
+        if request.method == 'POST':
+            if ccool > 4:
+                    ccool=0
+                    totalpoints.append(interesting)
+                    totalquizzes.append(1)
+                    totalcorrect.append(interesting/100)
+                    del cpointslist[:]
+                    del ccolors[:]
+                    return render_template('results.html',interesting=interesting, apple=capple,number=number)
+            else:
+                if request.form['submit_button'] == quiz.choice[cquiz_number][ccool]["answer"]:
+                    answer = "goodjob"
+                    cpoints += 100
+                    cpointslist.append(100)
+                    interesting = sum(pointslist)
+                    # any=quiz.question[cool]
+                    ccool+=1
+                    capple=quiz.choice[cquiz_number][ccool]
+                    ccolors.append("green")
+                    return render_template('choice.html',colors=ccolors,cool=ccool, answer=answer, question=quiz.choice[cquiz_number],apple=capple,interesting=interesting)
+                    # if cool >= 6:
+                    #     cool=0
+                    #     totalpoints.append(interesting)
+                    #     totalquizzes.append(1)
+                    #     totalcorrect.append(interesting/100)
+                    #     del pointslist[:]
+                    #     del colors[:]
+                    #     return render_template('results.html',interesting=interesting, apple=apple,number=number)
+                    # # if request.method == 'POST':
+                    # #     continue
+                    # else:
+                    #     return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple,interesting=interesting)
+                # elif cool == 4:
+                #     cool=0
+                elif request.form['submit_button'] == "Results":
+                    ccool+=1
+                    return render_template('choice.html',colors=ccolors,cool=ccool, answer=answer, question=quiz.choice[cquiz_number],apple=capple,interesting=interesting)
+                else:
+                    answer = "badjob"
+                    # points.append(-1*(question[cool]["points"]))
+                    cpoints += -100
+                    interesting = points
+                    interesting = sum(cpointslist)
+                    # cool=cool+1
+                    ccool+=1
+                    apple= quiz.choice[cquiz_number][ccool]
+                    ccolors.append("red")
+                    number=len(quiz.choice[cquiz_number])
+                    return render_template('choice.html',colors=ccolors,cool=ccool, answer=answer, question=quiz.choice[cquiz_number],apple=capple,interesting=interesting)
+                    # if cool >=6:
+                    #     totalpoints.append(interesting)
+                    #     del pointslist[:]
+                    #     cool=0
+                    #     del colors[:]
+                    #     return render_template('results.html',interesting=interesting,number=number)
+                    # # if request.method == 'POST':
+                    # #     continue
+                    # else:
+                    #     return render_template('gamer.html',colors=colors,cool=cool, answer=answer, question=quiz.question[quiz_number],apple=apple, interesting=interesting)
+                    # return render_template('game.html', answer=answer, question=question,any=any)
+
+        elif request.method == 'POST':
+            return render_template('choice.html',colors=ccolors,cool=ccool, answer=answer, question=quiz.choice[cquiz_number],apple=capple)
+        
+        else:
+            return render_template('index.html') 
           
             # elif request.form['value'] == question[0]["answer"]:
         #     answer = "badjob"

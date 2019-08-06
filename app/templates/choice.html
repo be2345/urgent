@@ -762,8 +762,8 @@
 				text-decoration: none;
 				position: relative;
 				display: block;
-				width: 3.75em;
-				height: 3.75em;
+				width: 2.75em;
+				height: 2.75em;
 				border-radius: 100%;
 				border: solid 1px #c8cccf;
 				line-height: 3.75em;
@@ -790,6 +790,21 @@
 					color: #ffffff;
 					text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf;
 				}
+					ul li .one {
+		background-color:{{colors[0]}};
+	}
+	ul li .two {
+		background-color:{{colors[1]}};
+	}
+	ul li .three {
+		background-color:{{colors[2]}};
+	}
+	ul li .four {
+		background-color:{{colors[3]}};
+	}
+	ul li .five {
+		background-color:{{colors[4]}};
+	}
 
 				ul.icons li a:hover:before {
 					text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;
@@ -929,11 +944,11 @@
 		background: #ffffff;
 		border-radius: 4px;
 		cursor: default;
-		max-width: 100%;
+		max-width: 200%;
 		opacity: 0.95;
 		position: relative;
 		text-align: center;
-		width: 27em;
+		width: 50em;
 	}
 
 		#main .avatar {
@@ -975,13 +990,13 @@
 
 		}
 
-		body.is-preload #main {
-			-moz-transform: rotateX(15deg);
-			-webkit-transform: rotateX(15deg);
-			-ms-transform: rotateX(15deg);
-			transform: rotateX(15deg);
-			opacity: 0;
-		}
+		/*body.is-preload #main {*/
+		/*	-moz-transform: rotateX(15deg);*/
+		/*	-webkit-transform: rotateX(15deg);*/
+		/*	-ms-transform: rotateX(15deg);*/
+		/*	transform: rotateX(15deg);*/
+		/*	opacity: 0;*/
+		/*}*/
 
 /* Footer */
 
@@ -1338,11 +1353,35 @@
     	color:#fbc99d;
 	}
 	#buttonone{
+		grid-column-start: 1;
+		grid-column-end: 4;
 		grid-row-start: 2;
 		grid-row-end: 3;
+	}
+	#true {
 		grid-column-start: 1;
 		grid-column-end: 2;
+		grid-row-start: 3;
+		grid-row-end: 4;
 	}
+	#results {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start: 3;
+		grid-row-end: 4;
+	}
+	#false {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		grid-row-start: 3;*/
+		grid-row-end: 4;
+	}
+	/*#buttontwo{*/
+	/*	grid-column-start: 1;*/
+	/*	grid-column-end: 4;*/
+	/*	grid-row-start: 4;*/
+	/*	grid-row-end: 5;*/
+	/*}*/
 	/*#middle {*/
 	/*	grid-row-start: 2;*/
 	/*	grid-row-end: 3;*/
@@ -1387,7 +1426,7 @@
 			height: 100%;
 		}</style>
 	</head>
-	<body class="is-preload">
+	<body>
 	
 
 		<!-- Wrapper -->
@@ -1431,36 +1470,36 @@
 					<section id="main">
 						<header>
 							<span class="avatar">Game Selection<img src="images/avatar.jpg" alt="" /></span>
+<h2>
+	<ul class="icons">
+		<li><a href="#" class="one"><span class="label"></span></a></li>
+		<li><a href="#" class="two"><span class="label"></span></a></li>
+		<li><a href="#" class="three"><span class="label"></span></a></li>
+		<li><a href="#" class="four"><span class="label"></span></a></li>
+		<li><a href="#" class="five"><span class="label"></span></a></li>
+	</ul>
+	</h2>
 <div class="container">
-		<div id="heading"><a>True or False</a></div>
-		<!--<a href='/quiz/<quiz>'>profile</a></p>-->
-		<div id="buttonone"><span>
-<form type = "submit" method="POST" action = '/quiz/<quiz>'><input type="submit" name="submit_button" value="1"></form></span></div>
-		<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="2"></form></span></div>
-		<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="3"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="4"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="5"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="6"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="7"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="8"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="9"></form></span></div>
-		</header>
-		<header>
-<div class="container">
-		<div id="heading"><a>Multiple Choice</a></div>
-		<!--<a href='/quiz/<quiz>'>profile</a></p>-->
-		<div id="buttonone"><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="1"></form></span></div>
-		<div><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="2"></form></span></div>
-		<div><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="3"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="4"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="5"></form></span></div>	<div><span>
-<form type = "submit" method="POST" action = '/mchoice/<mchoice>'><input type="submit" name="submit_button" value="6"></form></span></div>	<div><span>
-		</header>
+		<div id="heading">{{apple['question']}}</div>
+		<div id="buttonone"><span></span></div>
+		<div id="true"><span>
+<form type = "submit" method="POST" action = "/choicetruth"><input type="submit" name="submit_button" value="A"> {{apple['A']}}</form></span></div>	
+
+<div id="results"><span>{% if cool<=4: %}
+	</span></div>
+		<div id="results">
+	{% else %}
+	<form type = "submit" method="POST" ><input type="submit" name="submit_button" value="Results"></form> {% endif %}</span></div>
+<!--<div><span>-->
+<!--<form type = "submit" method="POST" action = "/quiz/<quiz>"><input type="submit" name="submit_button" value="5"></form></span></div>-->
+<div id="false"><span>
+<form type = "submit" method="POST" action = "/choicetruth"><input type="submit" name="submit_button" value="B"> {{apple['B']}}</form></span></div>   
+<div><span>
+<form type = "submit" method="POST" action = "/choicetruth"><input type="submit" name="submit_button" value="C"> {{apple['C']}}</form></span></div>
+<div><span></span></div>
+<div><span>
+<form type = "submit" method="POST" action = "/choicetruth"><input type="submit" name="submit_button" value="D"> {{apple['D']}}</form></span></div>
+
 			
 						<!--
 						<hr />
@@ -1499,13 +1538,13 @@
 						</form>
 						<hr />
 						-->
-						<footer>
-							<ul class="icons">
-								<li><a href="/" class="icon brands fa-twitter">Twitter</a></li>
-								<li><a href="#" class="icon brands fa-instagram">Instagram</a></li>
-								<li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>
-							</ul>
-						</footer>
+						<!--<footer>-->
+						<!--	<ul class="icons">-->
+						<!--		<li><a href="/" class="icon brands fa-twitter">Twitter</a></li>-->
+						<!--		<li><a href="#" class="icon brands fa-instagram">Instagram</a></li>-->
+						<!--		<li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>-->
+						<!--	</ul>-->
+						<!--</footer>-->
 					</section>
 
 				<!-- Footer -->
