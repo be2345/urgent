@@ -80,15 +80,8 @@ def game():
 #         else:
 #             return "goodbye"
  
-          
             # elif request.form['value'] == question[0]["answer"]:
         #     answer = "badjob"    
-
-# def stairsthree(floors):
-#     steps = floors/floors
-#     for steps in range(1,floors+1):
-#         print(steps*"#")
-# stairsthree(5)
 
 @app.route('/signup', methods = ['GET', 'POST'])    
 def signup():
@@ -252,6 +245,9 @@ def truth():
     apple= quiz.question[quiz_number][cool]
     global points
     answer=" "
+    print("the question is")
+    print(apple["question"])
+    print(cool)
     interesting = sum(pointslist)
     number=len(quiz.question[quiz_number])
     while cool <= 5:
