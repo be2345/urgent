@@ -99,7 +99,7 @@ def signup():
             realusers.insert({'username':request.form['username'],'password':request.form['password']})
             return render_template('index.html')
         else:
-            return "taken"
+            return render_template('signup.html')
     else:
         return render_template('signup.html')
 @app.route('/loginapp', methods = ['GET', 'POST'])    
@@ -109,13 +109,88 @@ def loginapp():
         return render_template('login.html',answer=answer)
     else:
         return render_template('login.html',answer=answer)
+cool=0
+column=["1/2","2/3","3/4","4/5","5/6","5/6","4/5","3/4","2/3","1/2","1/2","2/3","3/4","4/5","5/6","5/6","4/5","3/4","2/3","1/2","1/2","2/3","3/4","4/5","5/6","",""]
+rown=["5/6","5/6","5/6","5/6","5/6","4/5","4/5","4/5","4/5","4/5","3/4","3/4","3/4","3/4","3/4","2/3","2/3","2/3","2/3","2/3","1/2","1/2","1/2","1/2","1/2","",""]
 @app.route('/contests', methods = ['GET', 'POST'])    
 def contests():
-    answer=""
+    answer="" 
+    global cool
+    cool=0
+    apple= column[cool]
+    rows= rown[cool]
     if request.method=='POST':
-        return render_template('contests.html',answer=answer)
+        return render_template('contests.html',answer=answer,rows=rows,apple=apple)
     else:
-        return render_template('contests.html',answer=answer)
+        return render_template('contests.html',answer=answer,rows=rows,apple=apple)
+points=0
+# pointslist=[0]
+redow=5
+
+# quiz_number=0
+@app.route('/move', methods=['POST','GET'])
+def move():
+    global cool
+    global redow
+    apple= column[cool]
+    # rows= rown[cool]
+    rows=rown[0]
+    # global points
+    answer=" "
+    # interesting = sum(pointslist)
+    # number=len(quiz.question[quiz_number])
+    while cool <= 25:
+    # count = 0
+        if request.method == 'POST':
+            print(cool)
+            if cool > 24:
+                cool=0
+                return render_template('contests.html', apple=apple,rows=rows)
+            else:
+                cool+=1
+                apple=column[cool]
+                rows=rown[cool]
+                return render_template('contests.html', apple=apple,rows=rows)
+
+                
+                    
+            # elif cool>4:
+            #         cool=5
+            #         cool-=1
+            #         apple=column[cool]
+            #         rows=rown[cool]
+            #         # colors.append("green")
+            #         return render_template('contests.html',cool=cool, answer=answer,apple=apple,rows=rows)
+            # elif cool<=14:
+            #         cool=0
+            #         cool+=1
+            #         apple=column[cool]
+            #         rows=rown[cool]
+            #         # colors.append("green")
+            #         return render_template('contests.html',cool=cool, answer=answer,apple=apple,rows=rows)
+            # elif cool<=19:
+            #         cool=0
+            #         cool+=1
+            #         apple=column[cool]
+            #         rows=rown[cool]
+            #         # colors.append("green")
+            #         return render_template('contests.html',cool=cool, answer=answer,apple=apple,rows=rows)
+            # elif cool<=24:
+            #         cool=0
+            #         cool+=1
+            #         apple=column[cool]
+            #         rows=rown[cool]
+            #         # colors.append("green")
+            #         return render_template('contests.html',cool=cool, answer=answer,apple=apple,rows=rows)
+            # else:
+            #     cool=0
+            #     return render_template('contests.html',cool=cool, answer=answer,apple=apple,rows=rows)
+
+        elif request.method == 'POST':
+            return render_template('gamer.html',cool=cool, answer=answer,apple=apple,rows=rows)
+        
+        else:
+            return render_template('index.html') 
 @app.route('/login', methods = ['POST'])    
 def login():
         realusers = mongo.db.realusers
