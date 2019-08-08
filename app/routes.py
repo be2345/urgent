@@ -109,6 +109,13 @@ def loginapp():
         return render_template('login.html',answer=answer)
     else:
         return render_template('login.html',answer=answer)
+@app.route('/contests', methods = ['GET', 'POST'])    
+def contests():
+    answer=""
+    if request.method=='POST':
+        return render_template('contests.html',answer=answer)
+    else:
+        return render_template('contests.html',answer=answer)
 @app.route('/login', methods = ['POST'])    
 def login():
         realusers = mongo.db.realusers
